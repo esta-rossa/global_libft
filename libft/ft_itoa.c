@@ -1,0 +1,76 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arraji <arraji@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/19 05:44:36 by arraji            #+#    #+#             */
+/*   Updated: 2019/10/31 01:28:21 by arraji           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+static	char	*ft_revstr(char *str)
+{
+	int		count;
+	int		i;
+	char	c;
+
+	count = 0;
+	while (str[count] != '\0')
+		count++;
+	count = count - 1;
+	i = 0;
+	while (i < ((count + 1) / 2))
+	{
+		c = str[i];
+		str[i] = str[count - i];
+		str[count - i] = c;
+		i++;
+	}
+	return (str);
+}
+
+static	int		size(int n)
+{
+	int size;
+
+	size = 0;
+	while (n)
+	{
+		n = n / 10;
+		size++;
+	}
+	return (size);
+}
+
+char			*ft_itoa(int n)
+{
+	char				*result;
+	unsigned int		n_tmp;
+	int					sign;
+	int					index;
+
+	if (n == 0)
+	{
+		if (!(result = (char *)malloc(sizeof(*result) + 1)))
+			return (NULL);
+		result[0] = '0';
+		result[1] = '\0';
+		return (result);
+	}
+	sign = n < 0;
+	index = 0;
+	if (!(result = (char *)ft_calloc(size(n) + sign + 1, sizeof(*result))))
+		return (NULL);
+	n_tmp = sign ? (unsigned int)-n : (unsigned int)n;
+	while (n_tmp > 0)
+	{
+		result[index++] = n_tmp % 10 + '0';
+		n_tmp /= 10;
+	}
+	result[index] = sign ? '-' : '\0';
+	return (ft_revstr(result));
+}
