@@ -6,7 +6,7 @@
 /*   By: arraji <arraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 02:17:00 by arraji            #+#    #+#             */
-/*   Updated: 2019/11/06 01:03:27 by arraji           ###   ########.fr       */
+/*   Updated: 2019/12/04 17:30:41 by arraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 # define FT_LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
-
+#include "get_next_line.h"
+#include "ft_printf.h"
+# ifndef BUFFER_SIZE
+# define BUFFER_SIZE 500
+# endif
 typedef	struct	s_list
 {
 	void			*content;
@@ -30,7 +34,7 @@ void			*ft_memchr(const void *str, int value, size_t len);
 char			*ft_strchr(const char *str, int velue);
 size_t			ft_strlcpy(char *dest, const char *src, size_t size);
 size_t			ft_strlcat(char *dest, const char *src, size_t size);
-size_t			ft_strlen(const char *str);
+size_t			ft_strlen(const char *str, int type);
 char			*ft_strrchr(const char *str, int value);
 void			*ft_calloc(size_t num, size_t size);
 char			*ft_strnstr(const char *str, const char *to_find, size_t len);
@@ -68,4 +72,10 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 void			ft_lstpr_char(t_list *first);
 void			ft_lstpr_char_en(t_list *first);
 t_list			*ft_lst_test(void);
+char			*ft_ltoa(unsigned long n);
+size_t			ft_number_len(long num);
+int				ft_stradd(char **s1, char *s2, int type);
+char			*ft_strcpy(char *dest, char *src);
+char			*ft_revstr(char *str);int	ft_end(char **s1, char **s2, int rt);
+
 #endif

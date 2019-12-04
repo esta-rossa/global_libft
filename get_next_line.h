@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arraji <arraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/17 19:01:30 by arraji            #+#    #+#             */
-/*   Updated: 2019/12/04 17:02:13 by arraji           ###   ########.fr       */
+/*   Created: 2019/11/09 20:24:14 by arraji            #+#    #+#             */
+/*   Updated: 2019/12/04 17:30:17 by arraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FT_GET_NEXT_LINE_H
+# define FT_GET_NEXT_LINE_H
 #include "libft.h"
-
-size_t			ft_strlen(char const *str, int type)
-{
-	size_t len;
-
-	len = 0;
-	if (str == NULL)
-		return (0);
-	if (type == 1)
-		while (str[len])
-			len -= -1;
-	if (type == 0)
-		while (str[len] != '\n' && str[len] != '\0')
-			len -= -1;
-	return (len);
-}
+int				is_line(char *str, int rd);
+int				cutter(char **save, char **line);
+int				get_next_line(int fd, char **line);
+#endif

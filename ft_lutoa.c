@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_lutoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arraji <arraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 05:44:36 by arraji            #+#    #+#             */
-/*   Updated: 2019/12/04 17:23:10 by arraji           ###   ########.fr       */
+/*   Updated: 2019/12/04 17:12:13 by arraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 static	int		size(int n)
 {
@@ -26,12 +25,11 @@ static	int		size(int n)
 	return (size);
 }
 
-char			*ft_itoa(int n)
+char			*ft_ltoa(unsigned long n)
 {
 	char				*result;
-	unsigned int		n_tmp;
-	int					sign;
-	int					index;
+	unsigned long		n_tmp;
+	unsigned long		index;
 
 	if (n == 0)
 	{
@@ -41,16 +39,15 @@ char			*ft_itoa(int n)
 		result[1] = '\0';
 		return (result);
 	}
-	sign = n < 0;
 	index = 0;
-	if (!(result = (char *)ft_calloc(size(n) + sign + 1, sizeof(*result))))
+	if (!(result = (char *)ft_calloc(size(n) + 1, sizeof(*result))))
 		return (NULL);
-	n_tmp = sign ? (unsigned int)-n : (unsigned int)n;
+	n_tmp = n;
 	while (n_tmp > 0)
 	{
 		result[index++] = n_tmp % 10 + '0';
 		n_tmp /= 10;
 	}
-	result[index] = sign ? '-' : '\0';
+	result[index] = '\0';
 	return (ft_revstr(result));
 }

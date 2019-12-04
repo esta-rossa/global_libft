@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_revstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arraji <arraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/17 19:01:30 by arraji            #+#    #+#             */
-/*   Updated: 2019/12/04 17:02:13 by arraji           ###   ########.fr       */
+/*   Created: 2019/11/22 15:36:09 by arraji            #+#    #+#             */
+/*   Updated: 2019/11/22 15:59:58 by arraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-size_t			ft_strlen(char const *str, int type)
+char	*ft_revstr(char *str)
 {
-	size_t len;
+	int		count;
+	int		i;
+	char	c;
 
-	len = 0;
-	if (str == NULL)
-		return (0);
-	if (type == 1)
-		while (str[len])
-			len -= -1;
-	if (type == 0)
-		while (str[len] != '\n' && str[len] != '\0')
-			len -= -1;
-	return (len);
+	count = 0;
+	while (str[count] != '\0')
+		count++;
+	count = count - 1;
+	i = 0;
+	while (i < ((count + 1) / 2))
+	{
+		c = str[i];
+		str[i] = str[count - i];
+		str[count - i] = c;
+		i++;
+	}
+	return (str);
 }

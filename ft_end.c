@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_end.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arraji <arraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/17 19:01:30 by arraji            #+#    #+#             */
-/*   Updated: 2019/12/04 17:02:13 by arraji           ###   ########.fr       */
+/*   Created: 2019/11/24 01:04:28 by arraji            #+#    #+#             */
+/*   Updated: 2019/11/24 01:10:02 by arraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t			ft_strlen(char const *str, int type)
+int	ft_end(char **s1, char **s2, int rt)
 {
-	size_t len;
-
-	len = 0;
-	if (str == NULL)
-		return (0);
-	if (type == 1)
-		while (str[len])
-			len -= -1;
-	if (type == 0)
-		while (str[len] != '\n' && str[len] != '\0')
-			len -= -1;
-	return (len);
+	if (s1 != NULL && *s1 != NULL)
+	{
+		free(*s1);
+		*s1 = NULL;
+	}
+	if (s2 != NULL && *s2 != NULL)
+	{
+		free(*s2);
+		*s2 = NULL;
+	}
+	return (rt);
 }
