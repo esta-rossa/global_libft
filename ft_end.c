@@ -6,13 +6,13 @@
 /*   By: arraji <arraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 01:04:28 by arraji            #+#    #+#             */
-/*   Updated: 2019/11/24 01:10:02 by arraji           ###   ########.fr       */
+/*   Updated: 2019/12/05 03:11:40 by arraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_end(char **s1, char **s2, int rt)
+int	ft_end(void **s1, void **s2, int rt)
 {
 	if (s1 != NULL && *s1 != NULL)
 	{

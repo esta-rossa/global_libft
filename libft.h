@@ -6,7 +6,7 @@
 /*   By: arraji <arraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 02:17:00 by arraji            #+#    #+#             */
-/*   Updated: 2019/12/04 17:30:41 by arraji           ###   ########.fr       */
+/*   Updated: 2019/12/05 03:12:10 by arraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ char			*ft_ltoa(unsigned long n);
 size_t			ft_number_len(long num);
 int				ft_stradd(char **s1, char *s2, int type);
 char			*ft_strcpy(char *dest, char *src);
-char			*ft_revstr(char *str);int	ft_end(char **s1, char **s2, int rt);
-
+char			*ft_revstr(char *str);int	
+ft_end(void **s1, void **s2, int rt);
 #endif
